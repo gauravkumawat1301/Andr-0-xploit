@@ -149,7 +149,7 @@ dependencies()		#<Check all dependencies to run the script>
 	if [ "$a" == 0 ] || [ "$b" == 0 ];
 	then
 		echo
-		echo "${Purple}Installing Metasploit-Framework...${Close}"
+		echo -e "${Purple}Installing Metasploit-Framework...${Close}"
 		echo
 		apt install metasploit-framework
 	fi
@@ -157,7 +157,7 @@ dependencies()		#<Check all dependencies to run the script>
 	if [ $c == 0 ]
 	then
 		echo
-		echo "${Purple}Installing Apktool...${Close}"
+		echo -e "${Purple}Installing Apktool...${Close}"
 		echo
 		apt install apktool
 	fi
@@ -165,7 +165,7 @@ dependencies()		#<Check all dependencies to run the script>
 	if [ $d == 0 ]
 	then
 		echo
-		echo "${Purple}Installing Zipalign...${Close}"
+		echo -e "${Purple}Installing Zipalign...${Close}"
 		echo
 		apt install zipalign
 	fi
