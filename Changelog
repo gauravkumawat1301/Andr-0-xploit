@@ -1,0 +1,8 @@
+#CHANGELOG (V1.0 - V1.1)
+
+#Added
+In previous version (V1.0) if a dependency is missing it will try to install it whether internet is connected or not but now a 
+new feature is added in script which will first check whether internet is connected or not. 
+
+If you are not connected to internet still you can run the script as there is a option before installing dependencies
+whether you want to install dependency or not.
