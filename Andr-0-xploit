@@ -87,7 +87,7 @@ echo -e "${Purple}   / \  | \ | |  _ \|  _ \      / _ \     \ \/ /  _ \| |   / _
 echo -e "${Purple}  / _ \ |  \| | | | | |_) |____| | | |_____\  /| |_) | |  | | | | |  | |     ${close} " 
 echo -e "${Purple} / ___ \| |\  | |_| |  _ <_____| |_| |_____/  \|  __/| |__| |_| | |  | |     ${close} "
 echo -e "${Purple}/_/   \_\_| \_|____/|_| \_\     \___/     /_/\_\_|   |_____\___/___| |_|     ${close} "
-echo -e "${Green}                                                             Version:1.0     ${close} "
+echo -e "${Green}                                                             Version:1.1     ${close} "
 echo
 }
 
