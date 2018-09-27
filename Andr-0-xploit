@@ -145,7 +145,33 @@ dependencies()		#<Check all dependencies to run the script>
 		echo -e "${Green}[ ✔ ] Xterm....................... [ INSTALLED ]${Close}"
 		e=1
 	fi
+	
+	if [ "$a" == 0 ] || [ "$b" == 0 ] || [ "$c" == 0 ] || [ "$d" == 0 ] || [ "$e" == 0 ];
+	then
+		echo
+		echo -e "${Red}Some of the dependencies are missing.${Close} Still you can run this script for testing purpose..."
+		echo -en "Do you want to install them now [y/n]: "
+		read inst_dep
+		case $inst_dep in
+			[Yy][Ee][Ss]|[Yy])
+				check_internet
+				install_dependencies
+				;;
+			[Nn][Oo]|[Nn])
+				echo
+				echo -e "${Red}You are running this script with some missing dependencies. Don't blame me for any problems you face${Close} ¯\_(ツ)_/¯"
+				;;
+		esac
+	fi
+	echo 
+	echo -e "${Yellow}All Set!!! You are ready to go...${Close}"
+	read -n 1 -s -r -p "Press any key to continue..."
+	echo
+	clear
+}
 
+install_dependencies()		#<Install dependencies>
+{
 	if [ "$a" == 0 ] || [ "$b" == 0 ];
 	then
 		echo
@@ -177,9 +203,24 @@ dependencies()		#<Check all dependencies to run the script>
 		echo
 		apt install xterm
 	fi
+}
+
+check_internet()	#<Check whether internet is connected or not>
+{
 	echo
-	echo -e "${Yellow}All Set!!! You are ready to go...${Close}"
-	read -n 1 -s -r -p "Press any key to continue..."
+	echo
+	echo -e "${Purple}*Checking Internet Connection*${Close}"
+	ping -c 1 google.com > /dev/null 2>&1
+	if [[ "$?" != 0 ]]
+	then
+		echo -e "${Blue}Internet:${Close} ${Red}[ NOT CONNECTED ]${Close}"
+		echo -e "${Red}This Script needs internet to download files${Close}"
+		echo
+		sleep 1
+		exit
+	else
+		echo -e "${Blue}Internet:${Close} ${Green}[ CONNECTED ]${Close}"
+	fi
 }
 
 
@@ -654,5 +695,6 @@ Wan_Handler_TCP()  #<Reverse Connection Handler for exploit>
 
 clear		#<Clear screen>
 dependencies	#<Call dependencies function>
+clear
 Banner		#<Call Banner function>
 Menu 		#<Call Menu function>
