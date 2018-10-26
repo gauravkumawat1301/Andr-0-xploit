@@ -304,7 +304,7 @@ Interface()    #<Show all Active Interfaces list of system>
 	echo
 	echo -ne "${BBlue}[${Close}${BRed}!${Close}${BBlue}]Set Interface: ${Close}"
 	read a                     #<Read Input for the interface>
-	if [ $a -le $num ]         #<Active IP printing condition>
+	if ([ $a -le $num ] && [ $a -gt 0 ])         #<Active IP printing condition>
 	then
 	inet=$(ifconfig | grep -i "running" | grep -v "lo:" |  awk '{print NR ". " $s}' | cut -d: -f 1 | grep $a | awk '{print $2}')
 	ip=$(ifconfig $inet | grep inet | grep -v inet6 | awk '{print $2}')
@@ -459,6 +459,7 @@ Local_APK_Backdoor()  #<APK Backdoor Function to generate backdoor in APK to use
 			echo 
 			echo "Going back to main menu"
 			sleep 2
+			clear
 			Menu			#<Call Menu function>
 			;;
 		*)
@@ -477,7 +478,7 @@ Local_APK_Backdoor()  #<APK Backdoor Function to generate backdoor in APK to use
 	echo -e "*  Enter apk file only  *"
 	echo -e "*************************${Close}"
 	sleep 2
-	APK_Backdoor		#<Reload APK_Backdoor function>
+	Local_APK_Backdoor		#<Reload APK_Backdoor function>
 	fi
 }
 
@@ -503,6 +504,7 @@ Wan_Menu_Choice()	#<Choice Menu for WAN to make choice>
 			Wan_APK_Backdoor		#<Call Wan_APK_Backdoor function>
 			;;
 		99)
+			clear
 			Menu				#<Call Menu function>
 			;;
 		*)
@@ -596,6 +598,7 @@ Wan_Generate_Payload()		#<Function for generating Payload APK to use over the in
 			echo 
 			echo "Going back to main menu"
 			sleep 2
+			clear
 			Menu			#<Call Menu function>
 			;;
 		*)
@@ -657,6 +660,7 @@ Wan_APK_Backdoor()     #<Function for generating backdoor in APK to use over the
 			echo 
 			echo "Going back to main menu"
 			sleep 2
+			clear
 			Menu     #<Call Menu function>
 			;;
 		*)
